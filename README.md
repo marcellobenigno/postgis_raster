@@ -94,7 +94,7 @@ https://postgis.net/docs/RT_ST_BandMetaData.html
 
 ```sql
 SELECT
-	gid AS id, 
+	n.gid AS id, 
 	ST_Value(s.rast, n.geom) AS cota_m,
 	n.geom
 FROM srtm s, recorte_nascentes n 
