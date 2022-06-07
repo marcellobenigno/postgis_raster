@@ -1,0 +1,19 @@
+SET CLIENT_ENCODING TO UTF8;
+SET STANDARD_CONFORMING_STRINGS TO ON;
+BEGIN;
+CREATE TABLE "public"."recorte_area" (gid serial,
+"minx" numeric,
+"miny" numeric,
+"maxx" numeric,
+"maxy" numeric,
+"cntx" numeric,
+"cnty" numeric,
+"area" numeric,
+"perim" numeric,
+"height" numeric,
+"width" numeric);
+ALTER TABLE "public"."recorte_area" ADD PRIMARY KEY (gid);
+SELECT AddGeometryColumn('public','recorte_area','geom','4326','MULTIPOLYGON',2);
+INSERT INTO "public"."recorte_area" ("minx","miny","maxx","maxy","cntx","cnty","area","perim","height","width",geom) VALUES ('-38.427999999999997','-7.325000000000000','-37.494000000000000','-6.582000000000000','-37.960999999999999','-6.953500000000000','0.693961999999998','3.353999999999996','0.743000000000000','0.933999999999997','0106000020E61000000100000001030000000100000005000000105839B4C83643C0CDCCCCCCCC4C1DC0105839B4C83643C08716D9CEF7531AC0AC1C5A643BBF42C08716D9CEF7531AC0AC1C5A643BBF42C0CDCCCCCCCC4C1DC0105839B4C83643C0CDCCCCCCCC4C1DC0');
+COMMIT;
+ANALYZE "public"."recorte_area";
