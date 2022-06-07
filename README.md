@@ -120,7 +120,6 @@ https://postgis.net/docs/RT_ST_Value.html
 
 
 ```sql
-
 -- Criação da Tabela:
 CREATE TABLE coremas_uso_ocupacao_solo AS
 SELECT st_clip(u.rast, m.geom) AS rast
@@ -136,11 +135,9 @@ ALTER TABLE coremas_uso_ocupacao_solo
 CREATE INDEX idx_coremas_uso_ocupacao_solo_rast_gist ON coremas_uso_ocupacao_solo
     USING gist (st_convexhull(rast));
 
-
 -- Registro da View de MetaDados raster_columns:
 SELECT addrasterconstraints('coremas_uso_ocupacao_solo', 'rast', '4326');
 ```
-
 
 ![image](img/3-st_clip.jpg)
 
